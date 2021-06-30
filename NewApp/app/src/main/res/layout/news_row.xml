@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.homeFragment">
+
+
+    <ImageView
+        android:id="@+id/img_newsposter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/img_newsposter"
+        android:background="@drawable/gradiant"
+        />
+    <TextView
+        android:id="@+id/txt_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="newscompanyname"
+        android:drawablePadding="4dp"
+        android:layout_alignBottom="@id/img_newsposter"
+        android:textColor="#fff"
+        app:drawableStartCompat="@drawable/ic_baseline_person_24"
+        android:gravity="center_vertical"
+
+        android:layout_margin="8dp"
+        />
+
+</RelativeLayout>
