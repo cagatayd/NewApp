@@ -24,10 +24,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val binding =FragmentHomeBinding.bind(view)
         fragmentBinding=binding
 
-        binding.btn.setOnClickListener {
-            val actions=HomeFragmentDirections.actionHomeFragment2ToDetailFragment()
-            Navigation.findNavController(it).navigate(actions)
-        }
+
 
 
     }
