@@ -15,7 +15,36 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.cagatay.newapp.view.DetailFragment"
-        android:label="DetailFragment" />
+        android:label="DetailFragment" >
+        <argument
+            android:name="author"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="poster_title"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="urlToImage"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="publishedAt"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="content"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment2"
         android:name="com.cagatay.newapp.view.SearchFragment"

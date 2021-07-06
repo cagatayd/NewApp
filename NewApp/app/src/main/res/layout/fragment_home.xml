@@ -7,41 +7,23 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
-
-
 <RelativeLayout
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    >
+    tools:context=".HomeFragment">
 
-
-    <LinearLayout
-        android:id="@+id/linearlayout_countrynames"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-
-
-        >
-
-
-        <ImageButton
-            android:layout_width="90dp"
-            android:layout_height="31dp"
-            android:background="@color/white"
-            android:src="@drawable/ic_baseline_filter_alt_24"
-            android:layout_gravity="center"
-            android:layout_marginStart="13dp"
-
-            />
-
-
-    </LinearLayout>
+        android:layout_height="31dp"
+        android:layout_weight="1"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:menu="@menu/country_menu"
+        />
 
 
     <LinearLayout
@@ -50,51 +32,49 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/black"
-        android:layout_below="@+id/linearlayout_countrynames"
-        >
+        android:layout_below="@+id/toolbar">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:text="categoryy"
-            android:textSize="23dp"
-            />
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/category_recyclerview"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
 
+      </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Recyleviewhomefragment"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/linearlayout_category"
 
         >
 
 
 
-
-
-
     </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/news_erorr_txt"
+        android:id="@+id/newshome_erorr_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eror! try again"
         android:layout_centerInParent="true"
+        android:visibility="gone"
 
 
 
         />
 
     <ProgressBar
-        android:id="@+id/counrty_loading_prgsbar"
+        android:id="@+id/newshomey_loading_prgsbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
        android:layout_centerInParent="true"
+        android:visibility="gone"
 
         />
 
