@@ -22,26 +22,22 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
     lateinit var viewmodel:HomeViewModel
     private lateinit var adapter:TopHeadLinesAdapter
     private lateinit var categoryAdapter : CategoryAdapter
-    private lateinit var selectedcountry:String
-    private lateinit var mToolbar: androidx.appcompat.widget.Toolbar
+    private   var selectedcountry="tr"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
+        super.onCreate(savedInstanceState)
 
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-      //  (activity as MainActivity?)!!.setSupportActionBar(fragmentBinding!!.toolbar)
 
         viewmodel=ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
-
-
 
         val binding =FragmentHomeBinding.bind(view)
         fragmentBinding=binding
@@ -50,10 +46,8 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
 
 
         lifecycleScope.launchWhenCreated {
-            viewmodel.gettopheadlinenews("tr")
+           viewmodel.gettopheadlinenews(selectedcountry)
         }
-
-
 
         observeLiveData()
 
@@ -67,17 +61,14 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
 
         val categoryList = arrayListOf<String>()
         categoryList.add("business")
+        categoryList.add("ALL")
         categoryList.add("asas")
         categoryList.add("dsd")
         categoryList.add("dfd")
-        categoryList.add("fgfg")
-        categoryList.add("dfd")
-        categoryList.add("sds")
-        categoryList.add("dfd")
-        categoryList.add("fgf")
+
         categoryAdapter.categoryList = categoryList
         fragmentBinding?.categoryRecyclerview?.layoutManager = LinearLayoutManager(
-            requireContext(), LinearLayoutManager.HORIZONTAL , false
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
         )
         fragmentBinding?.categoryRecyclerview?.adapter = categoryAdapter
 
@@ -90,7 +81,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
                     adapter = TopHeadLinesAdapter()
                     adapter.topheadlinesnewslist = it.articles
                     fragmentBinding?.Recyleviewhomefragment?.layoutManager = LinearLayoutManager(
-                        requireContext()
+                            requireContext()
                     )
                     fragmentBinding?.Recyleviewhomefragment?.adapter = adapter
                     fragmentBinding?.newshomeErorrTxt?.visibility = View.GONE
@@ -135,7 +126,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
                     adapter = TopHeadLinesAdapter()
                     adapter.topheadlinesnewslist = it.articles
                     fragmentBinding?.Recyleviewhomefragment?.layoutManager = LinearLayoutManager(
-                        requireContext()
+                            requireContext()
                     )
                     fragmentBinding?.Recyleviewhomefragment?.adapter = adapter
                     fragmentBinding?.newshomeErorrTxt?.visibility = View.GONE
@@ -219,27 +210,43 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
                 Toast.makeText(requireContext(), "sssssssss", Toast.LENGTH_LONG).show()
                 selectedcountry = "tr"
 
+                lifecycleScope.launchWhenCreated {
+                    viewmodel.gettopheadlinenews(selectedcountry)
+
+                }
+
+                return true
+
             }
 
             R.id.selected_Argentina -> {
                 selectedcountry = "ae"
 
+                lifecycleScope.launchWhenCreated {
+                    viewmodel.gettopheadlinenews(selectedcountry)
+
+                }
+
+                return true
+
             }
 
             R.id.selected_Australia -> {
                 selectedcountry = "ar"
+
+                lifecycleScope.launchWhenCreated {
+                    viewmodel.gettopheadlinenews(selectedcountry)
+
+                }
+
+                return true
             }
 
 
-        }
 
-        lifecycleScope.launchWhenCreated {
-            viewmodel.gettopheadlinenews(selectedcountry)
         }
 
         return super.onOptionsItemSelected(item)
-
-
 
     }
 
@@ -249,14 +256,14 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
     }
 
     override fun onClick(v: View, category: String) {
-        viewmodel.getHeadLinesByCategory("tr",category)
+        viewmodel.getHeadLinesByCategory("tr", category)
         viewmodel.topheadLinesCategory.observe(viewLifecycleOwner, Observer {
             it.let {
                 if (it.status == "ok") {
                     adapter = TopHeadLinesAdapter()
                     adapter.topheadlinesnewslist = it.articles
                     fragmentBinding?.Recyleviewhomefragment?.layoutManager = LinearLayoutManager(
-                        requireContext()
+                            requireContext()
                     )
                     fragmentBinding?.Recyleviewhomefragment?.adapter = adapter
                     fragmentBinding?.newshomeErorrTxt?.visibility = View.GONE

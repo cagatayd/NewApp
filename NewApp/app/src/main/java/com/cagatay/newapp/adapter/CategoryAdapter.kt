@@ -51,8 +51,10 @@ class CategoryAdapter(private val onCategoryClickListener: OnCategoryClickListen
         val category=categoryList[position]
 
         var isClicked = false
+
         holder.itemView.apply {
             buttonCategory.text = category
+
             buttonCategory.setOnClickListener {
 
                 if (!isClicked){
