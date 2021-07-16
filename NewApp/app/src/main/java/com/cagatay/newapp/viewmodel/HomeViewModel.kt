@@ -15,7 +15,7 @@ class HomeViewModel @Inject constructor(private val repo: repo):ViewModel() {
 
 
     val topheadlinesnews=MutableLiveData<BaseNewsResponse>()
-    val topheadLinesCategory = MutableLiveData<BaseNewsResponse>()
+    val topheadLinesCategory = MutableLiveData<BaseNewsResponse>() // kategori buttonuna tıklandıktdan sonra seçilen kategoriye ait haberlerin listesinin oldugu nesnedir
     val topheadlinesnewsloading=MutableLiveData<Boolean>()
     val topheadlinesnewserorr=MutableLiveData<Boolean>()
 

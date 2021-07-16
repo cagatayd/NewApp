@@ -53,17 +53,24 @@ class CategoryAdapter(private val onCategoryClickListener: OnCategoryClickListen
         var isClicked = false
 
         holder.itemView.apply {
-            buttonCategory.text = category
+            buttonCategory.text = category // category nin içine fragment kısmında isimlerini ekliyoruz
 
             buttonCategory.setOnClickListener {
 
-                if (!isClicked){
+//                for ( item in  ) // item listenini tipinde string
+//                {
+//
+//
+//                }
+
+                if (!isClicked)
+                {
                     isClicked = true
-                    buttonCategory.setTextColor(context.getColor(R.color.white))
-                    buttonCategory.setBackgroundColor(context.getColor(R.color.black))
-                }else{
+                    buttonCategory.setBackgroundColor(context.getColor(R.color.customcolor))
+                }
+                else
+                {
                     isClicked = false
-                    buttonCategory.setTextColor(context.getColor(R.color.black))
                     buttonCategory.setBackgroundColor(context.getColor(R.color.white))
                 }
                 onCategoryClickListener.onClick(holder.itemView , category)

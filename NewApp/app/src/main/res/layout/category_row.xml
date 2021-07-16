@@ -2,14 +2,19 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_category"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="Deneme"
-        android:textAllCaps="false"
-        android:textSize="14sp"/>
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:background="@drawable/gradiant"
+        android:padding="8dp" />
+
+
 
 </com.google.android.material.card.MaterialCardView>

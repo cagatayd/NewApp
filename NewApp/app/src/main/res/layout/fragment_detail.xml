@@ -15,10 +15,13 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
+            android:padding="3dp"
             app:layout_constraintBottom_toTopOf="@+id/layot_detail_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="13dp"
+            >
 
             <ImageView
                 android:id="@+id/detailnewsposter"
@@ -26,8 +29,8 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@color/customcolor" />
-
         </LinearLayout>
+
 
 
         <LinearLayout
@@ -39,7 +42,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/poster_linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/poster_linearLayout"
+            android:paddingBottom="23dp"
+            >
 
             <TextView
                 android:id="@+id/detail_title"
@@ -56,62 +61,109 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutouthor"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layot_detail_title">
+            app:layout_constraintTop_toBottomOf="@+id/layot_detail_title"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author :"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginStart="13dp"
+                />
 
             <TextView
                 android:id="@+id/detail_author_name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="aaaaaaaaaaaaa"
                 android:textColor="@color/black"
-                android:paddingLeft="16dp"
                 android:textSize="13sp"
+                android:layout_marginLeft="3dp"
+
                 />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/linearLayoutdescirption"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutouthor">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutouthor"
+            android:paddingTop="10dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_gravity="start"
+                android:layout_marginStart="13dp"
+
+
+                />
 
             <TextView
                 android:id="@+id/detail_desciription"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
+                android:layout_height="wrap_content"
                 android:text="aaaaaaaaaaaaa"
                 android:textColor="@color/black"
-                android:paddingLeft="16dp"
+                android:layout_gravity="start"
                 android:textSize="13sp"
+                android:layout_marginLeft="3dp"
+
                 />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/linearLayouturl"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutdescirption">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutdescirption"
+            android:paddingTop="10dp"
+
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Url :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginStart="13dp"
+                />
 
             <TextView
                 android:id="@+id/detail_url_name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:text="aaaaaaaaaaaaa"
+                android:autoLink="web"
                 android:textColor="@color/black"
-                android:paddingLeft="16dp"
                 android:textSize="13sp"
+                android:layout_marginLeft="3dp"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -121,17 +173,32 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayouturl">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayouturl"
+            android:paddingTop="10dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish At :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="13dp"
+
+
+                />
 
             <TextView
                 android:id="@+id/detail_publishat_name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:text="aaaaaaaaaaaaa"
                 android:textColor="@color/black"
-                android:paddingLeft="16dp"
                 android:textSize="13sp"
+                android:layout_marginLeft="3dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -141,17 +208,31 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutpublishat">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutpublishat"
+            android:paddingTop="10dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Content :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="13dp"
+
+                />
 
             <TextView
                 android:id="@+id/detail_content"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:text="aaaaaaaaaaaaa"
                 android:textColor="@color/black"
-                android:paddingLeft="16dp"
                 android:textSize="13sp"
+                android:layout_marginLeft="3dp"
                 />
         </LinearLayout>
 

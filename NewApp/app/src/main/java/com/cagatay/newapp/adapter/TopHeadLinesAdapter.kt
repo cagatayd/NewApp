@@ -54,19 +54,32 @@ class TopHeadLinesAdapter:RecyclerView.Adapter<TopHeadLinesAdapter.TopHeadLinesV
         val topheadlinenews=topheadlinesnewslist[position]
 
         holder.itemView.apply {
-            if(topheadlinenews?.urlToImage != null && topheadlinenews?.author !=null && topheadlinenews?.title !=null){
+            if(topheadlinenews?.urlToImage != null)
+            {
                 GlideHelper.loadImage(context,topheadlinenews.urlToImage,newsposter)
-                newsauthor.text=topheadlinenews?.author
+
+            }
+            if(topheadlinenews?.title != null)
+            {
                 newspostertitle.text=topheadlinenews?.title
+
+            }
+            if(topheadlinenews?.author != null)
+            {
+                newsauthor.text=topheadlinenews?.author
+
+            }
+
+
             }
 
             holder.itemView.setOnClickListener {
-                onNewsClicked(holder.itemView,topheadlinenews)
+                onNewsClicked(holder.itemView,topheadlinenews) // holder yanı tum ekranın içindeki itemvew 1 ,itemview2.. tüm itemviewlerin tamamını kapsıyor
             }
         }
 
 
-    }
+
 
     override fun getItemCount(): Int {
         return topheadlinesnewslist.size

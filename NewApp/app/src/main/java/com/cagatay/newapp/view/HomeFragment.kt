@@ -57,19 +57,22 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
 
 
     private fun setCategoryAdapter(){
-        categoryAdapter = CategoryAdapter(this)
+
+        categoryAdapter = CategoryAdapter(this) /// on click listenerı bu sınıfta implemente ettğim için this dedim
 
         val categoryList = arrayListOf<String>()
+        categoryList.add("general")
         categoryList.add("business")
-        categoryList.add("ALL")
-        categoryList.add("asas")
-        categoryList.add("dsd")
-        categoryList.add("dfd")
+        categoryList.add("entertainment")
+        categoryList.add("science")
+        categoryList.add("sports")
+        categoryList.add("technology")
+
+
+
 
         categoryAdapter.categoryList = categoryList
-        fragmentBinding?.categoryRecyclerview?.layoutManager = LinearLayoutManager(
-                requireContext(), LinearLayoutManager.HORIZONTAL, false
-        )
+        fragmentBinding?.categoryRecyclerview?.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         fragmentBinding?.categoryRecyclerview?.adapter = categoryAdapter
 
     }
@@ -84,6 +87,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
                             requireContext()
                     )
                     fragmentBinding?.Recyleviewhomefragment?.adapter = adapter
+                    adapter.notifyDataSetChanged()
                     fragmentBinding?.newshomeErorrTxt?.visibility = View.GONE
                     fragmentBinding?.newshomeyLoadingPrgsbar?.visibility = View.GONE
                 } else {
@@ -120,23 +124,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
 
         })
 
-        viewmodel.topheadLinesCategory.observe(viewLifecycleOwner, Observer {
-            it.let {
-                if (it.status == "ok") {
-                    adapter = TopHeadLinesAdapter()
-                    adapter.topheadlinesnewslist = it.articles
-                    fragmentBinding?.Recyleviewhomefragment?.layoutManager = LinearLayoutManager(
-                            requireContext()
-                    )
-                    fragmentBinding?.Recyleviewhomefragment?.adapter = adapter
-                    fragmentBinding?.newshomeErorrTxt?.visibility = View.GONE
-                    fragmentBinding?.newshomeyLoadingPrgsbar?.visibility = View.GONE
-                } else {
-                    fragmentBinding?.newshomeErorrTxt?.visibility = View.VISIBLE
-                    fragmentBinding?.newshomeyLoadingPrgsbar?.visibility = View.GONE
-                }
-            }
-        })
+
 
 
 
@@ -210,57 +198,54 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
                 Toast.makeText(requireContext(), "sssssssss", Toast.LENGTH_LONG).show()
                 selectedcountry = "tr"
 
-                lifecycleScope.launchWhenCreated {
-                    viewmodel.gettopheadlinenews(selectedcountry)
+//                return true /// metodun işini bitirir ondan view model çalışmaz
 
                 }
-
-                return true
-
-            }
 
             R.id.selected_Argentina -> {
-                selectedcountry = "ae"
+                selectedcountry = "ar"
 
-                lifecycleScope.launchWhenCreated {
-                    viewmodel.gettopheadlinenews(selectedcountry)
 
-                }
-
-                return true
 
             }
 
             R.id.selected_Australia -> {
-                selectedcountry = "ar"
+                selectedcountry = "au"
 
-                lifecycleScope.launchWhenCreated {
-                    viewmodel.gettopheadlinenews(selectedcountry)
 
-                }
 
-                return true
             }
+            R.id.selected_Austria->{
+                selectedcountry="at"
 
 
+            }
 
         }
 
+        lifecycleScope.launchWhenCreated {
+            viewmodel.gettopheadlinenews(selectedcountry)
+
+        }
         return super.onOptionsItemSelected(item)
 
+
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
         fragmentBinding==null
     }
 
-    override fun onClick(v: View, category: String) {
-        viewmodel.getHeadLinesByCategory("tr", category)
+    override fun onClick(v: View, category: String) { /// bastıktan sonra ana adapterı günceliyoruz   category: String içi adapterda doluyor
+
+        viewmodel.getHeadLinesByCategory(selectedcountry, category) //
         viewmodel.topheadLinesCategory.observe(viewLifecycleOwner, Observer {
             it.let {
                 if (it.status == "ok") {
-                    adapter = TopHeadLinesAdapter()
+                    adapter = TopHeadLinesAdapter() // seçilen kategoriye ait api den gelen haberlerin yeniden ekrana basılması için adapter nesnesini oluşturduj
                     adapter.topheadlinesnewslist = it.articles
                     fragmentBinding?.Recyleviewhomefragment?.layoutManager = LinearLayoutManager(
                             requireContext()
@@ -275,11 +260,6 @@ class HomeFragment : Fragment(R.layout.fragment_home),OnCategoryClickListener {
             }
         })
     }
-
-
-
-
-
 
 
 

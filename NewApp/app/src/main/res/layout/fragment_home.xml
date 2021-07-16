@@ -13,17 +13,21 @@
     tools:context=".HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="31dp"
-        android:layout_weight="1"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:menu="@menu/country_menu"
-        />
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="?attr/actionBarTheme"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:menu="@menu/country_menu"
+    />
+
+
 
 
     <LinearLayout
@@ -31,7 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/black"
         android:layout_below="@+id/toolbar">
 
       <androidx.recyclerview.widget.RecyclerView
@@ -52,8 +55,6 @@
         android:layout_below="@+id/linearlayout_category"
 
         >
-
-
 
     </androidx.recyclerview.widget.RecyclerView>
 
